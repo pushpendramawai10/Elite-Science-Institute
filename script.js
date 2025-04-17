@@ -3,7 +3,7 @@ const firebaseConfig = {
   apiKey: "AIzaSyB3ydz419KcuNRQxdBSTIHfbjgpSK-oOdU",
   authDomain: "esi-2d7b2.firebaseapp.com",
   projectId: "esi-2d7b2",
-  storageBucket: "esi-2d7b2.firebasestorage.app",
+  storageBucket: "esi-2d7b2.appspot.com",
   messagingSenderId: "348170091277",
   appId: "1:348170091277:web:d0e1f150fe97c4638e4e44",
   measurementId: "G-32610QEXWY"
@@ -46,3 +46,17 @@ document.getElementById("logout-btn").addEventListener("click", () => {
         window.location.href = "login.html"; // Redirect to login page
     });
 });
+// Signup Function
+function signup() {
+    const email = document.getElementById("signup-email").value;
+    const password = document.getElementById("signup-password").value;
+
+    auth.createUserWithEmailAndPassword(email, password)
+        .then((userCredential) => {
+            alert("Signup successful!");
+            window.location.href = "login.html"; // Redirect to login page
+        })
+        .catch((error) => {
+            alert(error.message);
+        });
+}
